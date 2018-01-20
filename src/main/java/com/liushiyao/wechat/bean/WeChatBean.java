@@ -11,8 +11,8 @@ public class WeChatBean {
     String responseStr = "";
     TextMessage requestMessage = TextMessageBean.getTextMessage(req);
     TextMessage responseMessage = new TextMessage();
-    responseMessage.setToUserName(requestMessage.getFromUserName());
-    responseMessage.setFromUserName(requestMessage.getToUserName());
+    responseMessage.setToUserName(requestMessage.getToUserName());
+    responseMessage.setFromUserName(requestMessage.getFromUserName());
     responseMessage.setCreateTime(new Date().getTime());
     responseMessage.setMsgType(MessageState.RESP_MESSAGE_TYPE_TEXT);
     //文本信息
