@@ -4,17 +4,17 @@ public class MessageState {
 
   //================返回类型=================//
   //返回消息类型：文本
-  public static final String RESP_MESSAGE_TYPE_TEXT="text";
+  public static final String RESP_MESSAGE_TYPE_TEXT = "text";
   //返回消息类型：音乐
-  public static final String RESP_MESSAGE_TYPE_MUSIC="music";
+  public static final String RESP_MESSAGE_TYPE_MUSIC = "music";
   //返回消息类型：图文
-  public static final String RESP_MESSAGE_TYPE_NEWS="news";
+  public static final String RESP_MESSAGE_TYPE_NEWS = "news";
   //返回消息类型：语音
   public static final String RESP_MESSAGE_TYPE_VOICE = "voice";
 
   //==================请求类型===============//
   //请求消息类型：文本
-  public static final String REQ_MESSAGE_TYPE_TEXT="text";
+  public static final String REQ_MESSAGE_TYPE_TEXT = "text";
   //请求消息类型：图片
   public static final String REQ_MESSAGE_TYPE_IMAGE = "image";
   //请求消息类型：语音
