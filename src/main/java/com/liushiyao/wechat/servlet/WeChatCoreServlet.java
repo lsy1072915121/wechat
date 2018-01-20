@@ -15,7 +15,7 @@ import org.apache.log4j.Logger;
 /**
  * WeChat二次开发核心控制器
  */
-@WebServlet(name = "wechatCore",urlPatterns = "/wechatCore")
+@WebServlet(name = "wechatCore",urlPatterns = {"/wechatCore"})
 public class WeChatCoreServlet  extends HttpServlet{
 
 

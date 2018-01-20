@@ -10,4 +10,7 @@
     <param-name>log4jConfig</param-name>
     <param-value>/WEB-INF/classes/log4j.properties</param-value>
   </context-param>
+
+
+
 </web-app>
