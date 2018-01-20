@@ -11,6 +11,16 @@
     <param-value>/WEB-INF/classes/log4j.properties</param-value>
   </context-param>
 
+  <servlet>
+    <servlet-name>testServlet</servlet-name>
+    <servlet-class>com.liushiyao.wechat.servlet.TestServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>testServlet</servlet-name>
+    <url-pattern>/testservlet</url-pattern>
+  </servlet-mapping>
+
 
 
 </web-app>
