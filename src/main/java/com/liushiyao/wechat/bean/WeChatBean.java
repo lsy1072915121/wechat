@@ -1,14 +1,39 @@
 package com.liushiyao.wechat.bean;
 
 import com.liushiyao.wechat.common.MessageState;
+import com.liushiyao.wechat.servlet.WeChatCoreServlet;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
+import org.apache.log4j.Logger;
 
 public class WeChatBean {
+
+  public static final Logger LOGGER = Logger.getLogger(WeChatCoreServlet.class);
+
+
+  private static String parseReq (HttpServletRequest request) throws IOException {
+
+    BufferedReader bufferedReader =
+        new BufferedReader(new InputStreamReader(request.getInputStream(),"UTF-8"));
+    String line = null;
+    String context ="";
+    while((line=bufferedReader.readLine())!=null){
+      context += line;
+    }
+    bufferedReader.close();
+    return context;
+  }
+
 
   public static String processRequest(HttpServletRequest req) throws Exception {
 
     String responseStr = "";
+
+    LOGGER.info("WeChat ReSend Context:"+parseReq(req));
+
     BaseMessage baseMessage = BaseMessageBean.getMessage(req);
     String msgType = baseMessage.getMsgType();
     //文本信息
