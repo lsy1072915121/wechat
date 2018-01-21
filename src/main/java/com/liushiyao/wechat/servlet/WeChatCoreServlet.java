@@ -75,7 +75,7 @@ public class WeChatCoreServlet  extends HttpServlet{
       LOGGER.error("微信转发内容处理有误");
       e.printStackTrace();
     }
-    LOGGER.info ( "微信公众号处理后的信息：" + respMsg );
+    LOGGER.info ( "微信公众号处理后的信息：\n" + respMsg );
     PrintWriter writer = resp.getWriter ( );
     writer.write ( respMsg );
     writer.close ( );
