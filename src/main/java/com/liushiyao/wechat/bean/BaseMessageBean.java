@@ -23,7 +23,7 @@ public class BaseMessageBean {
    * 解析微信发来的请求（xml）
    */
   @SuppressWarnings("unchecked")
-  private static Map<String, String> parseXml(HttpServletRequest request) throws Exception {
+  public static Map<String, String> parseXml(HttpServletRequest request) throws Exception {
 
     //将解析结果存在Map中
     Map<String, String> map = new HashMap<String, String>();
