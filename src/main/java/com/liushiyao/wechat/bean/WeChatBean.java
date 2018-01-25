@@ -34,7 +34,7 @@ public class WeChatBean {
 
     String responseStr = "";
 
-    LOGGER.info("WeChat ReSend Context:" + parseReq(req));
+//    LOGGER.info("WeChat ReSend Context:" + parseReq(req));
 
     Map<String, String> requestMap = BaseMessageBean.parseXml(req);
     String msgType = requestMap.get("MsgType");
