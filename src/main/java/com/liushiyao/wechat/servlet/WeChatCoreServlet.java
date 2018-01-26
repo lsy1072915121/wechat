@@ -1,7 +1,9 @@
 package com.liushiyao.wechat.servlet;
 
 
+import com.liushiyao.wechat.bean.ButtonBean;
 import com.liushiyao.wechat.bean.WeChatBean;
+import com.liushiyao.wechat.utils.PropertyUtil;
 import com.liushiyao.wechat.utils.SignUtil;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,11 +17,28 @@ import org.apache.log4j.Logger;
 /**
  * WeChat二次开发核心控制器
  */
-@WebServlet(name = "wechatCore",urlPatterns = {"/wechatCore"})
+@WebServlet(name = "wechatCore",urlPatterns = {"/wechatCore"},loadOnStartup = 1)
 public class WeChatCoreServlet  extends HttpServlet{
 
-
   public static final Logger LOGGER = Logger.getLogger(WeChatCoreServlet.class);
+
+  /**
+   * 启动微信后台初始化函数
+   * 1.配置菜单选项
+   * @throws ServletException
+   */
+  @Override
+  public void init() throws ServletException {
+
+    String isCreate  = PropertyUtil.getProperty("isCreateMenu");
+    if(isCreate.equals("true")){
+      ButtonBean.createButton();
+    }else
+    {
+      LOGGER.info("init error");
+    }
+
+  }
 
   /**
    * 处理微信服务器验证
@@ -73,6 +92,7 @@ public class WeChatCoreServlet  extends HttpServlet{
       respMsg = WeChatBean.processRequest ( req );
     } catch (Exception e) {
       LOGGER.error("微信转发内容处理有误");
+      LOGGER.error(e.getMessage());
       e.printStackTrace();
     }
     LOGGER.info ( "微信公众号处理后的信息：\n" + respMsg );
